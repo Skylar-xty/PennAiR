@@ -1,0 +1,27 @@
+<launch>
+    <!-- 
+      ROS Launch file for the shape detection system.
+      This file starts the video streamer and the shape detector nodes.
+      It also includes an rqt_image_view node to easily visualize the results.
+    -->
+
+    <!-- Argument for the input video file path -->
+    <!-- Make sure to provide the full, absolute path to your video -->
+    <arg name="video_file" default="$(find detector_ros)/PennAir_2024_App_Dynamic.mp4" />
+
+    <!-- 1. Video Streamer Node -->
+    <!-- This node reads the video file and publishes frames to /camera/image_raw -->
+    <node name="video_streamer" pkg="detector_ros" type="video_streamer.py" output="screen">
+        <param name="video_path" value="$(arg video_file)" />
+        <param name="rate" value="30" /> <!-- Publish rate in Hz -->
+    </node>
+
+    <!-- 2. Shape Detector Node -->
+    <!-- This node subscribes to /camera/image_raw, processes the images, and publishes detections -->
+    <node name="shape_detector_node" pkg="detector_ros" type="shape_detector_node.py" output="screen" />
+
+    <!-- 3. (Optional) Visualization with rqt_image_view -->
+    <!-- This node subscribes to the annotated image topic for easy viewing -->
+    <node name="image_view" pkg="rqt_image_view" type="rqt_image_view" args="/camera/image_annotated" />
+
+</launch>

@@ -1,0 +1,8 @@
+prefix=/home/skylar/Penn/PennAiR/ros1_ws/devel
+
+Name: detector_ros
+Description: Description of detector_ros
+Version: 0.0.0
+Cflags: -I/home/skylar/Penn/PennAiR/ros1_ws/devel/include
+Libs: -L${prefix}/lib 
+Requires: cv_bridge message_runtime rospy sensor_msgs std_msgs

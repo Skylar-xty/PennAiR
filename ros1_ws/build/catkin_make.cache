@@ -1,0 +1,2 @@
+detector_ros
+-DCATKIN_DEVEL_PREFIX=/home/skylar/Penn/PennAiR/ros1_ws/devel -DCMAKE_INSTALL_PREFIX=/home/skylar/Penn/PennAiR/ros1_ws/install -G Unix Makefiles
