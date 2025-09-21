@@ -101,7 +101,7 @@ def detect_and_annotate(img_bgr):
             final_masks.append((name, m))
 
     # -------- First pass: collect detections (no drawing yet) --------
-    detections = []           # list of dicts
+    detections = []          
     circle_candidates = []    # store (contour, r_px) for circles (for Z estimation)
 
     for label, mask in final_masks:
@@ -170,7 +170,6 @@ def detect_and_annotate(img_bgr):
         cv2.putText(annot, text, (cx-130, cy-18),
                     cv2.FONT_HERSHEY_SIMPLEX, 0.6, (255,255,255), 1, cv2.LINE_AA)
 
-    # 控制台输出（保持你原有风格）
     det_sorted = sorted(detections, key=lambda d: d["center"][0])
     for d in det_sorted:
         print(f"{d['shape']:>11s} @ {d['center']} (area={d['area']}) via {d['mask']}")
