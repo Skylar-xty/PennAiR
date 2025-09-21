@@ -3,12 +3,12 @@
 # Running Instructions
 For Q1,
 ```bash
-python Q1.py --input PennAir_2024_App_Static.png --output annotated1.png
+python Q1.py --input PennAir_2024_App_Static.png --output annotatedQ1.png
 ```
 For Q2,
 ```bash
 python Q2.py --input PennAir_2024_App_Dynamic.mp4 \
-             --output annotated2.mp4 \
+             --output annotatedQ2.mp4 \
              --csv detections.csv \
              --preview 1   
 ```    
@@ -18,7 +18,7 @@ python Q3.py
 ```
 For Q4,
 ```bash
-python Q4.py --input PennAir_2024_App_Static.png --output annotated4.png
+python Q4.py --input PennAir_2024_App_Static.png --output annotatedQ4.png
 ```
 For Q5,
 ```bash
