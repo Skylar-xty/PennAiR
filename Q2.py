@@ -11,10 +11,10 @@ Streaming shape detection on video using OpenCV.
 - Saves per-frame detections to CSV
 
 Usage:
-    python Q2.py --input PennAir_2024_App_Dynamic.mp4 \
-                                 --output annotated.mp4 \
-                                 --csv detections.csv \
-                                 --preview 1
+python Q2.py --input PennAir_2024_App_Dynamic.mp4 \
+                                --output annotatedQ2.mp4 \
+                                --csv detections.csv \
+                                --preview 1
 """
 import cv2
 import numpy as np

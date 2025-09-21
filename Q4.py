@@ -9,7 +9,7 @@ Static shape detection on a grassy background (minimal) + Part 4 (3D centers):
 - If no circle is found, Z is reported as unknown (still outputs 2D annotations).
 
 Usage:
-    python shape_detect_static.py --input PennAir_2024_App_Static.png --output annotated.png
+python Q4.py --input PennAir_2024_App_Static.png --output annotatedQ4.png
 """
 import cv2
 import numpy as np
@@ -141,7 +141,7 @@ def detect_and_annotate(img_bgr):
         _, r_best = max(circle_candidates, key=lambda t: t[1])
         Z_plane = depth_from_circle_pixels(r_best)
 
-    # -------- Second pass: draw + (optional) 3D text --------
+    # -------- Second pass: draw + 3D text --------
     annot = img_bgr.copy()
 
     # Put Z note on the image
@@ -165,9 +165,9 @@ def detect_and_annotate(img_bgr):
         else:
             text = f"{shape}"
 
-        cv2.putText(annot, text, (cx+8, cy-8),
+        cv2.putText(annot, text, (cx-130, cy-18),
                     cv2.FONT_HERSHEY_SIMPLEX, 0.6, (0,0,0), 3, cv2.LINE_AA)
-        cv2.putText(annot, text, (cx+8, cy-8),
+        cv2.putText(annot, text, (cx-130, cy-18),
                     cv2.FONT_HERSHEY_SIMPLEX, 0.6, (255,255,255), 1, cv2.LINE_AA)
 
     # 控制台输出（保持你原有风格）
