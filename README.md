@@ -67,11 +67,8 @@ roslaunch detector_ros shape_detector.launch
   - 3 → triangle  
   - 4 → quadrilateral  
   - 5 → pentagon  
-- Otherwise, compute **circularity**:
-  
-  $$
-  C = \frac{4 \pi \cdot \text{Area}}{\text{Perimeter}^2}
-  $$
+- Otherwise, compute **circularity**:$`
+  C = \frac{4 \pi \cdot \text{Area}}{\text{Perimeter}^2} `$
   
   - If `C > 0.75` → circle  
   - Else → generic polygon  
