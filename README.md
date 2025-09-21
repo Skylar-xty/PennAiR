@@ -69,9 +69,9 @@ roslaunch detector_ros shape_detector.launch
   - 5 → pentagon  
 - Otherwise, compute **circularity**:
 
-  $
+  $$
   C = \frac{4 \pi \cdot \text{Area}}{\text{Perimeter}^2}
-  $
+  $$
   
   - If `C > 0.75` → circle  
   - Else → generic polygon  
@@ -160,18 +160,20 @@ The main image process is the same as Q1 and Q2, the difference is the depth est
     $$
   
     where:  
-    - $ f_{\text{mean}} = (f_x+f_y)/2 $ 
-    - $ D_{\text{real}} = 20\ \text{in} $ (known circle diameter)  
-    - $ d_{\text{px}} = 2r_{px} $ (diameter in pixels)  
+    - $ f_{\text{mean}} = (f_x+f_y)/2 $  
+    - $ D_{\text{real}} = 20\ \text{in} $  (known circle diameter)  
+    - $ d_{\text{px}} = 2r_{px} $  (diameter in pixels)  
 - If no circle is found: depth `Z` is unknown.  
 
 ## 3. Back-Projection to 3D
-- For each shape center `(u,v)` and plane depth `Z`:  
+- For each shape center `(u,v)` and plane depth `Z`:
+  
     $$
     X = \frac{(u-c_x)}{f_x} \cdot Z, \quad
     Y = \frac{(v-c_y)}{f_y} \cdot Z, \quad
     Z = Z
-    $$ 
+    $$
+  
 - Output `(X,Y,Z)` in inches.  
 
 ## 4. Second Pass (Annotation)
