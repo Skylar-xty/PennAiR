@@ -124,10 +124,6 @@ import cv2
 import numpy as np
 from skimage.morphology import remove_small_objects
 
-# ==============================================================================
-# 1. 核心算法函数
-# ==============================================================================
-
 def get_initial_edges(image, canny_low=70, canny_high=170):
     """
     步骤 1: 使用Canny算子获取初始边缘点。
@@ -183,18 +179,7 @@ def find_large_regions(edges_image, original_image, min_area=100):
     cv2.drawContours(result_image, large_contours, -1, (0, 255, 0), 2)
     return result_image
 
-# ==============================================================================
-# 2. 视频处理主程序
-# ==============================================================================
-
-# ==============================================================================
-# 2. 视频处理主程序 (修改后)
-# ==============================================================================
-
-def main_video(video_path, output_path="processed_video.mp4"):
-    """
-    主函数，用于打开视频文件，应用边缘生长算法，并保存结果。
-    """
+def main_video(video_path, output_path):
     cap = cv2.VideoCapture(video_path)
     if not cap.isOpened():
         print(f"错误：无法打开视频文件: {video_path}")
@@ -221,9 +206,7 @@ def main_video(video_path, output_path="processed_video.mp4"):
     fourcc = cv2.VideoWriter_fourcc(*'mp4v') # 使用.mp4格式
     writer = cv2.VideoWriter(output_path, fourcc, fps, output_size)
     
-    # 将视频流重置回第一帧
     cap.set(cv2.CAP_PROP_POS_FRAMES, 0)
-    # --- 新增代码结束 ---
 
     while True:
         ret, frame = cap.read()
@@ -248,18 +231,13 @@ def main_video(video_path, output_path="processed_video.mp4"):
         combined_display = np.vstack((top_row, bottom_row))
 
         cv2.imshow("Edge Growing Segmentation for Video", combined_display)
-
-        # --- 新增代码：将当前帧写入视频文件 ---
         writer.write(combined_display)
-        # --- 新增代码结束 ---
 
         if cv2.waitKey(25) & 0xFF == ord('q'):
             print("User requested exit.")
             break
 
-    # --- 新增代码：释放写入对象 ---
     writer.release()
-    # --- 新增代码结束 ---
     
     cap.release()
     cv2.destroyAllWindows()
@@ -272,10 +250,8 @@ def resize_image(image, width=400):
     return cv2.resize(image, (width, int(h * r)), interpolation=cv2.INTER_AREA)
 
 
-
-
 if __name__ == '__main__':
     video_file = "PennAir_2024_App_Dynamic_Hard.mp4" 
-    output_file = "processed_PennAir_video.mp4" # 定义输出文件名
+    output_file = "annotatedQ3.mp4" # 定义输出文件名
     main_video(video_file, output_file)
 
