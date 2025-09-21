@@ -9,7 +9,7 @@ Static shape detection on a grassy background (minimal) + Part 4 (3D centers):
 - If no circle is found, Z is reported as unknown (still outputs 2D annotations).
 
 Usage:
-    python shape_detect_static.py --input PennAir_2024_App_Static.png --output annotated.png
+python Q4.py --input PennAir_2024_App_Static.png --output annotated4.png
 """
 import cv2
 import numpy as np

@@ -2,10 +2,6 @@ import cv2
 import numpy as np
 from skimage.morphology import remove_small_objects
 
-# ==============================================================================
-# 1. 核心算法函数
-# ==============================================================================
-
 def get_initial_edges(image, canny_low=70, canny_high=170):
     """
     步骤 1: 使用Canny算子获取初始边缘点。
@@ -60,10 +56,6 @@ def find_large_regions(edges_image, original_image, min_area=100):
             
     cv2.drawContours(result_image, large_contours, -1, (0, 255, 0), 2)
     return result_image
-
-# ==============================================================================
-# 2. 视频处理主程序
-# ==============================================================================
 
 def main_video(video_path):
     cap = cv2.VideoCapture(video_path)

@@ -8,7 +8,7 @@ Static shape detection on a grassy background:
 - Label each shape
 
 Usage:
-    python shape_detect_static.py --input PennAir_2024_App_Static.png --output annotated.png
+python Q1.py --input PennAir_2024_App_Static.png --output annotated1.png
 """
 import cv2
 import numpy as np
