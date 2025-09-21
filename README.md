@@ -67,9 +67,12 @@ roslaunch detector_ros shape_detector.launch
   - 3 → triangle  
   - 4 → quadrilateral  
   - 5 → pentagon  
-- Otherwise, compute **circularity**:  $
+- Otherwise, compute **circularity**:
+
+  $
   C = \frac{4 \pi \cdot \text{Area}}{\text{Perimeter}^2}
   $
+  
   - If `C > 0.75` → circle  
   - Else → generic polygon  
 - Additional filter: ignore blobs with `area < 200`.
@@ -150,10 +153,12 @@ The main image process is the same as Q1 and Q2, the difference is the depth est
 ## 2. Depth Plane Estimation
 - If at least one circle is found:  
     - Pick the **largest circle** (most stable).  
-    - Compute plane depth using:  
+    - Compute plane depth using:
+      
     $$
     Z = \frac{f_{\text{mean}} \cdot D_{\text{real}}}{d_{\text{px}}}
     $$
+  
     where:  
     - $ f_{\text{mean}} = (f_x+f_y)/2 $ 
     - $ D_{\text{real}} = 20\ \text{in} $ (known circle diameter)  
