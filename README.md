@@ -154,10 +154,10 @@ The main image process is the same as Q1 and Q2, the difference is the depth est
 - If at least one circle is found:  
     - Pick the **largest circle** (most stable).  
     - Compute plane depth using:
-      
-      $$
-      Z = \frac{f_{\text{mean}} \cdot D_{\text{real}}}{d_{\text{px}}}
-      $$
+        
+  $$
+  Z = \frac{f_{\text{mean}} \cdot D_{\text{real}}}{d_{\text{px}}}
+  $$
   
     where:  
     - $` f_{\text{mean}} = (f_x+f_y)/2 `$  
@@ -167,11 +167,11 @@ The main image process is the same as Q1 and Q2, the difference is the depth est
 
 ## 3. Back-Projection to 3D
 - For each shape center `(u,v)` and plane depth `Z`:
-  
     $$
-  
-    $$
-  
+    X = \frac{(u-c_x)}{f_x} \cdot Z, \quad
+    Y = \frac{(v-c_y)}{f_y} \cdot Z, \quad
+    Z = Z
+    $$ 
 - Output `(X,Y,Z)` in inches.  
 
 ## 4. Second Pass (Annotation)
