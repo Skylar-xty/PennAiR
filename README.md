@@ -167,11 +167,9 @@ The main image process is the same as Q1 and Q2, the difference is the depth est
 
 ## 3. Back-Projection to 3D
 - For each shape center `(u,v)` and plane depth `Z`:
-    $$
-    X = \frac{(u-c_x)}{f_x} \cdot Z, \quad
+    $`    X = \frac{(u-c_x)}{f_x} \cdot Z, \quad
     Y = \frac{(v-c_y)}{f_y} \cdot Z, \quad
-    Z = Z
-    $$ 
+    Z = Z `$
 - Output `(X,Y,Z)` in inches.  
 
 ## 4. Second Pass (Annotation)
