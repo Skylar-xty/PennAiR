@@ -99,6 +99,8 @@ Color segmentation (HSV) → Noise cleanup → Contour extraction → Shape clas
 # Q2
 The only difference from Q1 is retrieving resolution and FPS to configure `VideoWriter`, and convert each frame to HSV for robust color segmentation.
 
+Besides, I used a trackbar to find the best HSV range.
+
 # Q3
 This algorithm combines **Canny edges**, an iterative **edge-growing process**, and **region filtering** to isolate meaningful shapes while ignoring noise or full-frame borders.  
 
